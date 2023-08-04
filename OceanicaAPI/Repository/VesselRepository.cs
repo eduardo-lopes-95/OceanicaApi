@@ -13,12 +13,6 @@ public class VesselRepository : IRepository<Vessel>
         Context = context;
     }
 
-    public void DeleteById(int id)
-    {
-        var entity = GetById(id);
-        Context.Vessels.Remove(entity);
-    }
-
     public ICollection<Vessel> GetAll(int skip, int take)
     {
         return Context.Vessels.Skip(skip).Take(take).ToList();
@@ -46,5 +40,11 @@ public class VesselRepository : IRepository<Vessel>
 
         Context.SaveChangesAsync();
         return entityFound;
+    }
+
+    public void DeleteById(int id)
+    {
+        var entity = GetById(id);
+        Context.Vessels.Remove(entity);
     }
 }
