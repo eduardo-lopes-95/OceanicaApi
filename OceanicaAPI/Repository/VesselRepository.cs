@@ -15,7 +15,8 @@ public class VesselRepository : IRepository<Vessel>
 
     public void DeleteById(int id)
     {
-        throw new NotImplementedException();
+        var entity = GetById(id);
+        Context.Vessels.Remove(entity);
     }
 
     public ICollection<Vessel> GetAll(int skip, int take)
