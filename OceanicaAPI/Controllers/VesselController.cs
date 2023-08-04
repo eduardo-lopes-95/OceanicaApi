@@ -18,7 +18,7 @@ public class VesselController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetVessels([FromQuery] int page = 1,[FromQuery] int qtde = 10)
+    public IActionResult GetVessels([FromQuery] int page = 1, [FromQuery] int qtde = 10)
     {
         return Ok(VesselRepository.GetAll(page, qtde));
     }
